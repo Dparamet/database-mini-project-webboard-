@@ -1,0 +1,21 @@
+<div class="p-3 rounded-3 shadow-sm bg-white">
+  <h6 class="text-muted">PROFILE</h6>
+  <% if (me){ %>
+    <div class="d-flex align-items-center mb-2">
+      <div class="rounded-circle bg-secondary me-2" style="width:40px;height:40px;"></div>
+      <div>
+        <div class="fw-semibold"><%= me.displayName || me.username %></div>
+        <small class="text-muted">@<%= me.username %></small>
+      </div>
+    </div>
+  <% } else { %>
+    <p class="mb-0">ยังไม่เข้าสู่ระบบ</p>
+  <% } %>
+  <hr>
+  <ul class="list-unstyled">
+    <li class="mb-2"><a class="btn btn-sm btn-outline-primary w-100" href="/">หน้าแรก</a></li>
+    <li class="mb-2"><a class="btn btn-sm btn-outline-secondary w-100" href="/thread/new">เขียนกระทู้</a></li>
+    <li class="mb-2"><a class="btn btn-sm btn-outline-secondary w-100" href="#">ข้อความ (demo)</a></li>
+    <li class="mb-2"><a class="btn btn-sm btn-outline-secondary w-100" href="#">ตั้งค่า (demo)</a></li>
+  </ul>
+</div>

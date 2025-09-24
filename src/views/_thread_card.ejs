@@ -1,0 +1,13 @@
+<div class="p-3 rounded-4 bg-white shadow-sm">
+  <div class="d-flex">
+    <div class="flex-grow-1">
+      <a href="/thread/<%= t._id %>" class="text-decoration-none"><h5 class="mb-1"><%= t.title %></h5></a>
+      <div class="text-muted small">โดย <%= t.author?.displayName || t.author?.username %> · <%= new Date(t.createdAt).toLocaleString() %> · 👁️ <%= t.views %></div>
+    </div>
+    <div>
+      <% (t.tags||[]).forEach(tag=> { %>
+        <a class="badge text-bg-light border" href="/?q=<%= encodeURIComponent(tag) %>"><%= tag %></a>
+      <% }) %>
+    </div>
+  </div>
+</div>

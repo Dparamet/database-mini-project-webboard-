@@ -1,0 +1,31 @@
+
+<div class="p-3 rounded-4 bg-white shadow-sm mb-3">
+  <h3 class="mb-1"><%= t.title %></h3>
+  <div class="text-muted small mb-3">โดย <%= t.author?.displayName || t.author?.username %> · <%= new Date(t.createdAt).toLocaleString() %> · 👁️ <%= t.views %></div>
+  <div class="border-top pt-3"><%- t.body %></div>
+</div>
+
+<h5 class="mb-2">ตอบกลับ</h5>
+<% if (replies.length===0) { %>
+  <div class="alert alert-light border">ยังไม่มีความเห็น</div>
+<% } %>
+<div class="vstack gap-2 mb-4">
+  <% replies.forEach(r=>{ %>
+    <div class="p-3 rounded-3 bg-white border">
+      <div class="small text-muted mb-1"><strong><%= r.author?.displayName || r.author?.username %></strong> · <%= new Date(r.createdAt).toLocaleString() %></div>
+      <div><%- r.body %></div>
+    </div>
+  <% }) %>
+</div>
+
+<% if (me) { %>
+<form method="post" action="/thread/<%= t._id %>/reply">
+  <div class="mb-3">
+    <textarea name="body" class="form-control" rows="4" placeholder="เขียนความเห็นของคุณ..." required></textarea>
+  </div>
+  <button class="btn btn-primary">ส่งความเห็น</button>
+</form>
+<% } else { %>
+  <div class="alert alert-warning">กรุณา <a href="/login">เข้าสู่ระบบ</a> เพื่อแสดงความคิดเห็น</div>
+<% } %>
+<a id="end"></a>

@@ -1,0 +1,13 @@
+<% var title = "กระทู้ล่าสุด"; %>
+<div class="d-flex align-items-center mb-3">
+  <h4 class="mb-0">กระทู้ล่าสุด</h4>
+  <div class="ms-auto"><a class="btn btn-primary" href="/thread/new">+ ตั้งกระทู้</a></div>
+</div>
+<% if (threads.length===0){ %>
+  <div class="alert alert-info">ยังไม่มีกระทู้ ลองสร้างอันแรกเลย!</div>
+<% } %>
+<div class="vstack gap-3">
+  <% threads.forEach(t => { %>
+    <%- include("_thread_card",{t}) %>
+  <% }) %>
+</div>

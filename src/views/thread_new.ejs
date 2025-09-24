@@ -1,0 +1,20 @@
+
+<h4 class="mb-3">ตั้งกระทู้ใหม่</h4>
+<% if (typeof errors!=="undefined"){ %>
+  <div class="alert alert-danger"><%= errors.map(e=>e.msg).join('<br>') %></div>
+<% } %>
+<form method="post" action="/thread">
+  <div class="mb-3">
+    <label class="form-label">หัวข้อ</label>
+    <input name="title" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">รายละเอียด (รองรับ HTML เบื้องต้น)</label>
+    <textarea name="body" class="form-control" rows="6" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">แท็ก (คั่นด้วย ,)</label>
+    <input name="tags" class="form-control" placeholder="javascript, node, webboard">
+  </div>
+  <button class="btn btn-primary">โพสต์</button>
+</form>
