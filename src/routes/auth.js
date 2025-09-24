@@ -1,5 +1,5 @@
 import { Router } from "express";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { body, validationResult } from "express-validator";
 import User from "../models/User.js";
 
